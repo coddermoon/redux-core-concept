@@ -1,6 +1,7 @@
 //constances
 
-const { createStore } = require("redux");
+const { createStore,applyMiddleware } = require("redux");
+const { default: logger } = require("redux-logger");
 
 const GET_PRODUCTS = "GET_PRODUCTS";
 const ADD_PRODUCT = "ADD_PRODUCT";
@@ -50,7 +51,7 @@ const productReducer = (state = initialProductState, action) => {
 
 // store
 
-const store = createStore(productReducer)
+const store = createStore(productReducer, applyMiddleware(logger))
 
 // subscribe
 store.subscribe(() => {

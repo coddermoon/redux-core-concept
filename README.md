@@ -1,1 +1,5 @@
-"# redux-core-concept" 
+# redux-core-concept
+
+### uses middlware
+- Redux-logger
+- redux-thunk

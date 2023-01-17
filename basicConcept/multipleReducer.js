@@ -1,6 +1,6 @@
 //constances
 
-const { createStore } = require("redux");
+const { createStore, combineReducers } = require("redux");
 
 const GET_PRODUCTS = "GET_PRODUCTS";
 const ADD_PRODUCT = "ADD_PRODUCT";
@@ -93,26 +93,31 @@ const cardReducer = (state=initialCardState, action)=>{
             }
     
         default:
-            state
+          return  state
     }
 
 }
 
+// combine multiple reducers
 
+const rootReducer = combineReducers({
+    productReducer,
+    cardReducer
+})
 
 
 // store
 
-const store = createStore(cardReducer)
+const store = createStore(rootReducer)
 
 // subscribe
 store.subscribe(() => {
     console.log(store.getState());
   });
 
-//   store.dispatch(addProduct('mahamodul Hasan Moon'))
-//   store.dispatch(getProducts())
-//   store.dispatch(addProduct('mahamodul Hasan '))
+  store.dispatch(addProduct('mahamodul Hasan Moon'))
+  store.dispatch(getProducts())
+  store.dispatch(addProduct('mahamodul Hasan '))
 
 
   store.dispatch(getCard())

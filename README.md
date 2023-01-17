@@ -3,3 +3,7 @@
 ### uses middlware
 - Redux-logger
 - redux-thunk
+
+### others pacakges
+
+- axios
